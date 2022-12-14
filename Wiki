@@ -1,0 +1,6 @@
+import wikipediaapi
+def Wik(req,lang='ru'):
+    wiki_wiki = wikipediaapi.Wikipedia('en')
+    page_py = wiki_wiki.page(req)
+    page_py_ru = page_py.langlinks[lang]
+    return ("Page - Title: %s" % page_py.title),("Page - Summary: %s" % page_py_ru.summary),page_py.fullurl
