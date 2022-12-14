@@ -1,0 +1,13 @@
+from habanero import exceptions, Crossref
+import json
+def Cros(req,number,select="publisher,author,title,URL,issue"):
+    cr = Crossref()
+    a=str(input("Хотите ли вы увидеть абстракт?(Да\Нет)\n"))
+    if a=="Да":
+        print("Принято")
+        select="publisher,author,title,URL,issue,abstract"
+    else:
+        print("Как знаете")
+    print("Ожидайте")
+    res1 = cr.works(query=req, select=select,limit=number,format="text",style="apa")
+    return res1
